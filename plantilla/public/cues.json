@@ -1,0 +1,191 @@
+{
+ "palabras": [
+  {
+   "w": "por",
+   "texto": "¿Por",
+   "t": 0.0,
+   "f": 0.32
+  },
+  {
+   "w": "que",
+   "texto": "qué",
+   "t": 0.32,
+   "f": 0.5
+  },
+  {
+   "w": "el",
+   "texto": "el",
+   "t": 0.5,
+   "f": 0.6
+  },
+  {
+   "w": "fondo",
+   "texto": "fondo",
+   "t": 0.6,
+   "f": 0.84
+  },
+  {
+   "w": "de",
+   "texto": "de",
+   "t": 0.84,
+   "f": 1.0
+  },
+  {
+   "w": "una",
+   "texto": "una",
+   "t": 1.0,
+   "f": 1.1
+  },
+  {
+   "w": "lata",
+   "texto": "lata",
+   "t": 1.1,
+   "f": 1.3
+  },
+  {
+   "w": "esta",
+   "texto": "está",
+   "t": 1.3,
+   "f": 1.56
+  },
+  {
+   "w": "hundido",
+   "texto": "hundido",
+   "t": 1.56,
+   "f": 1.9
+  },
+  {
+   "w": "hacia",
+   "texto": "hacia",
+   "t": 1.9,
+   "f": 2.06
+  },
+  {
+   "w": "dentro",
+   "texto": "dentro?",
+   "t": 2.06,
+   "f": 2.5
+  },
+  {
+   "w": "porque",
+   "texto": "Porque",
+   "t": 2.5,
+   "f": 2.94
+  },
+  {
+   "w": "dentro",
+   "texto": "dentro",
+   "t": 2.94,
+   "f": 3.16
+  },
+  {
+   "w": "hay",
+   "texto": "hay",
+   "t": 3.16,
+   "f": 3.42
+  },
+  {
+   "w": "mucha",
+   "texto": "mucha",
+   "t": 3.42,
+   "f": 3.62
+  },
+  {
+   "w": "presion",
+   "texto": "presión.",
+   "t": 3.62,
+   "f": 4.02
+  },
+  {
+   "w": "un",
+   "texto": "Un",
+   "t": 4.28,
+   "f": 4.46
+  },
+  {
+   "w": "fondo",
+   "texto": "fondo",
+   "t": 4.46,
+   "f": 4.74
+  },
+  {
+   "w": "plano",
+   "texto": "plano",
+   "t": 4.74,
+   "f": 5.0
+  },
+  {
+   "w": "se",
+   "texto": "se",
+   "t": 5.0,
+   "f": 5.22
+  },
+  {
+   "w": "abombaria",
+   "texto": "abombaría,",
+   "t": 5.22,
+   "f": 5.76
+  },
+  {
+   "w": "y",
+   "texto": "y",
+   "t": 5.76,
+   "f": 6.02
+  },
+  {
+   "w": "esa",
+   "texto": "esa",
+   "t": 6.02,
+   "f": 6.18
+  },
+  {
+   "w": "cupula",
+   "texto": "cúpula",
+   "t": 6.18,
+   "f": 6.64
+  },
+  {
+   "w": "aguanta",
+   "texto": "aguanta",
+   "t": 6.64,
+   "f": 7.14
+  },
+  {
+   "w": "mucho",
+   "texto": "mucho",
+   "t": 7.14,
+   "f": 7.64
+  },
+  {
+   "w": "mas",
+   "texto": "más.",
+   "t": 7.64,
+   "f": 7.88
+  },
+  {
+   "w": "asi",
+   "texto": "Así",
+   "t": 8.16,
+   "f": 8.38
+  },
+  {
+   "w": "gastan",
+   "texto": "gastan",
+   "t": 8.38,
+   "f": 8.62
+  },
+  {
+   "w": "menos",
+   "texto": "menos",
+   "t": 8.62,
+   "f": 8.86
+  },
+  {
+   "w": "aluminio",
+   "texto": "aluminio.",
+   "t": 8.86,
+   "f": 9.36
+  }
+ ],
+ "duracion": 9.68
+}

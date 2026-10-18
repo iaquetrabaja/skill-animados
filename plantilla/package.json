@@ -1,0 +1,19 @@
+{
+  "name": "animados-plantilla",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Video ../salida/video.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.499",
+    "@remotion/google-fonts": "4.0.499",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.499"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/react": "19.2.2"
+  }
+}
