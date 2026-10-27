@@ -1,5 +1,9 @@
 # Cambios
 
+## 2.2.0
+
+Voz de demo sustituida por AI33/OpenSpeaker y resincronizada: 77 palabras sin interpolación. Cliente API configurable con catálogo de voces, clave por entorno, descarga sin exponer credenciales y reanudación de tareas. Cuatro pruebas nuevas de integración simulada. Nuevas portadas coherentes con Tools y documentación AI33.
+
 ## 2.1.0
 
 La demo se sustituye por una historia original completa de unos 28 segundos: ocho escenas, narración local autorizada, vidrio, agua, disolución, balanza, fuerzas, mar y comparación final. Código y audio final incluidos para reproducirla; sin muestras ni perfiles de clonación.

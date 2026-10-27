@@ -12,15 +12,15 @@ Descarga el ZIP del repositorio, descomprímelo y abre esa carpeta en **Claude C
 
 **ChatGPT en el navegador:** adjunta `SKILL.md` y las referencias relevantes para preparar investigación, guion y storyboard. Para ejecutar el proyecto en tu ordenador usa Codex, Claude Code o los comandos de abajo. Adjuntar instrucciones no concede acceso a tu PC. [Compatibilidad y prompts](referencias/06-asistentes.md).
 
-<img src="docs/demo.jpg" width="280" alt="Un huevo en agua: vista del ejemplo narrado de Animados">
+<img src="docs/portada.png" width="800" alt="Vídeos con IA: Claude y ChatGPT. Tu idea, tu vídeo.">
 
-[Ver o descargar la demo narrada de unos 28 segundos](https://github.com/iaquetrabaja/skill-animados/releases/latest/download/demo.mp4)
+[Ver o descargar la demo narrada de unos 26 segundos](https://github.com/iaquetrabaja/skill-animados/releases/latest/download/demo.mp4)
 
 ## Qué mejora la versión 2
 
 - Un taller portable: comprobar requisitos, crear proyectos aislados, validar, previsualizar y exportar.
 - `AGENTS.md` y `CLAUDE.md` comparten el mismo método; no dependes de un solo asistente.
-- Kit SVG propio con volumen, sombra de contacto, trayectorias con destino y estallidos deterministas. Demo original narrada de unos 28 segundos.
+- Kit SVG propio con volumen, sombra de contacto, trayectorias con destino y estallidos deterministas. Demo original narrada de unos 26 segundos.
 - Subtítulos sin descarga de Google Fonts durante el render; se elimina el zoom continuo que podía recortar el dibujo.
 - La alineación rechaza palabras no reconocidas por defecto. Si decides interpolar, queda identificado en el JSON.
 - Se comprueban tiempos negativos, solapes, orden de escenas, palabras inexistentes y TypeScript.
@@ -40,7 +40,7 @@ python herramientas/animados.py instalar
 python herramientas/animados.py demo
 ```
 
-Resultado: `salida/demo.mp4`, 1080 × 1920, 30 fps, **con narración generada en local y efectos originales**. Explica por qué un huevo flota al añadir sal, mediante ocho escenas. La narración final está incluida; no necesitas clonar una voz ni descargar un modelo para renderizar la demo. Para verlo editable: `python herramientas/animados.py preview` y elige `Demo`.
+Resultado: `salida/demo.mp4`, 1080 × 1920, 30 fps, **con narración AI33 y efectos originales**. Explica por qué un huevo flota al añadir sal, mediante ocho escenas. La narración final está incluida; no necesitas clonar una voz ni descargar un modelo para renderizar la demo. Para verlo editable: `python herramientas/animados.py preview` y elige `Demo`.
 
 ```bash
 python herramientas/animados.py crear mi-video
@@ -54,9 +54,10 @@ La plantilla de la lata trae **voz silenciosa y tiempos de muestra**. Antes de p
 
 ## Voz: elige el camino sencillo primero
 
-1. **Grabación propia:** usa tu WAV; no necesita GPU ni servicio externo.
-2. **Proveedor de voz:** importa un WAV obtenido con permiso y revisa sus condiciones/coste.
-3. **Qwen local opcional:** en un entorno Python separado, instala `qwen-tts soundfile`, con PyTorch adecuado a tu equipo. Descarga modelos de varios GB; velocidad y memoria dependen de hardware/modelo. No se instala automáticamente. Requiere una muestra autorizada y su transcripción, no incluye muestras originales para clonar voces.
+1. **AI33/OpenSpeaker:** genera con distintas voces de ElevenLabs, Minimax u otros proveedores admitidos usando tu propia cuenta y clave. Integración incluida en `herramientas/voz_ai33.py`; [guía y comandos](referencias/08-ai33.md). Puede consumir créditos.
+2. **Grabación propia:** usa tu WAV; no necesita GPU ni servicio externo.
+3. **Otro proveedor de voz:** importa un WAV obtenido con permiso y revisa sus condiciones/coste.
+4. **Qwen local opcional:** en un entorno Python separado, instala `qwen-tts soundfile`, con PyTorch adecuado a tu equipo. Descarga modelos de varios GB; velocidad y memoria dependen de hardware/modelo. No se instala automáticamente. Requiere una muestra autorizada y su transcripción, no incluye muestras originales para clonar voces.
 
 ```bash
 python herramientas/voz_local.py guion.txt plantilla/public/voz.wav --muestra mi-voz.wav --texto-muestra "Texto exacto de mi muestra"
@@ -93,4 +94,4 @@ Nota de mantenimiento: fijamos Zod 4.6.6 para corregir un aviso de seguridad, au
 
 ## Historia de ejemplo incluida
 
-La composición `Demo` está en `plantilla/src/demo/`. Incluye guion, storyboard y fuente NOAA en `ejemplos/huevo-flotante/`, con narración final autorizada y efectos propios. No se distribuyen referencias de clonación ni perfiles de voz. La voz se ha ralentizado con conservación de tono para dejar leer la acción. Whisper reconoció 76/77 palabras del guion; una pieza de subtítulo figura como estimada y requiere revisión al cambiar el audio. La animación es una ilustración didáctica, no una simulación física o molecular.
+La composición `Demo` está en `plantilla/src/demo/`. Incluye guion, storyboard y fuente NOAA en `ejemplos/huevo-flotante/`, con narración final autorizada y efectos propios. No se distribuyen referencias de clonación ni perfiles de voz. La demo usa AI33/OpenSpeaker con la voz `elevenlabs_7QXA3lh7d25G1SzsIJdv`, a velocidad 1. Whisper alineó las 77 palabras del guion sin interpolaciones; todas las escenas y efectos se han reajustado al nuevo audio. La voz final está incluida, pero la clave no. Para nuevas narraciones usa tu propia cuenta y revisa las condiciones del proveedor. La animación es una ilustración didáctica, no una simulación física o molecular.

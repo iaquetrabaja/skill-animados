@@ -5,15 +5,17 @@ import cues from '../../public/demo/cues.json';
 import {Arrow, Defs, Egg, Glass, Grains, Kitchen, Ocean, Shaker, clamp,ease,mix,span} from './Mundo';
 
 const TITLE='#fff2d5',GREEN='#91f2c5',RED='#ff8577';
+const anchor=(word:string,scene:number,fallback:number)=>{const p=cues.palabras.find(x=>x.w===word&&x.t>=frases[scene].inicio&&x.t<=frases[scene].fin);return p?p.t-frases[scene].inicio:fallback};
 const T:React.FC<{a:string;b?:string;color?:string}>=({a,b,color=TITLE})=><g textAnchor="middle" fontFamily="Arial" fontWeight="800" fill={color}><text x="540" y="265" fontSize={Math.min(76,900/(a.length*.59))}>{a}</text>{b&&<text x="540" y="350" fontSize={Math.min(76,900/(b.length*.59))}>{b}</text>}</g>;
 const Word:React.FC<{x:number;y:number;text:string;fill?:string;size?:number}>=({x,y,text,fill='#f4eddd',size=39})=><text x={x} y={y} fill={fill} fontFamily="Arial" fontWeight="700" fontSize={size} textAnchor="middle">{text}</text>;
 
 const Hook:React.FC<{t:number;d:number}>=({t,d})=>{
- const drop=span(t,.1,d*.25),salt=span(t,d*.34,d*.66),rise=span(t,d*.66,d*.93);
- const y=mix(mix(-20,420,drop),200,rise);const shake=t>d*.34&&t<d*.68?Math.sin(t*22)*7:0;
+ const hunde=anchor('hunde',0,d*.25),salT=anchor('sal',0,d*.45),empieza=anchor('empieza',0,d*.68),flotar=anchor('flotar',0,d*.88);
+ const drop=span(t,Math.max(.05,hunde-.6),hunde+.12),salt=span(t,salT-.12,empieza+.1),rise=span(t,empieza-.05,Math.min(d-.1,flotar+.35));
+ const y=mix(mix(-20,420,drop),200,rise);const shake=t>salT-.15&&t<empieza+.1?Math.sin(t*22)*7:0;
  return <><T a="¿POR QUÉ FLOTA?"/><g transform={`translate(540 930) scale(${mix(.91,1,span(t,0,.5))}) translate(-540 -930)`}>
  <Glass x={540} y={590} s={1.03} eggY={y} salt={salt} ripple={drop<1?drop:rise<1&&rise>0?rise:0}/>
- <g opacity={span(t,d*.27,d*.35)*(1-span(t,d*.7,d*.8))}><Shaker x={755} y={530} r={-52+shake} s={1.05}/><Grains t={t} start={d*.35} end={d*.65} x={640} y={510}/></g>
+ <g opacity={span(t,salT-.65,salT-.2)*(1-span(t,empieza+.12,empieza+.48))}><Shaker x={755} y={530} r={-52+shake} s={1.05}/><Grains t={t} start={salT-.12} end={empieza+.1} x={640} y={510}/></g>
  </g><Word x={540} y={1320} text={rise>.5?'MISMO HUEVO. OTRA AGUA.':salt>.1?'AÑADE SAL':'AGUA DULCE'} fill={rise>.5?GREEN:TITLE}/></>;
 };
 
@@ -84,8 +86,8 @@ export const Film:React.FC=()=>{
  const phrase=frases[scene];const local=t-phrase.inicio;const duration=(frases[scene+1]?.inicio??phrase.fin+.25)-phrase.inicio;
  return <AbsoluteFill style={{background:'#0a202a'}}>
  <Audio src={staticFile('demo/narracion.wav')}/>
- <Sequence from={Math.round(frases[0].fin*.25*30)} durationInFrames={18}><Audio src={staticFile('sfx/agua.wav')} volume={.2}/></Sequence>
- {[.36,.46,.56].map((r,i)=><Sequence key={'sal'+i} from={Math.round(frases[0].fin*r*30)} durationInFrames={5}><Audio src={staticFile('sfx/sal.wav')} volume={.1}/></Sequence>)}
+ <Sequence from={Math.round((anchor('hunde',0,1)+.12)*30)} durationInFrames={18}><Audio src={staticFile('sfx/agua.wav')} volume={.2}/></Sequence>
+ {[0,.2,.4].map((r,i)=><Sequence key={'sal'+i} from={Math.round((anchor('sal',0,2)+r)*30)} durationInFrames={5}><Audio src={staticFile('sfx/sal.wav')} volume={.1}/></Sequence>)}
  <Sequence from={Math.round((frases[1].inicio+.25)*30)} durationInFrames={15}><Audio src={staticFile('sfx/cristal.wav')} volume={.08}/></Sequence>
  {[0,2,3,5,7].map((n)=><Sequence key={n} from={Math.round(frases[n].inicio*30)+4} durationInFrames={12}><Audio src={staticFile(n===3?'sfx/paso.wav':'sfx/aire.wav')} volume={.11}/></Sequence>)}
  <svg viewBox="0 0 1080 1920" width="100%" height="100%"><Defs/>{scene===6?<Ocean t={local}/>:<Kitchen/>}

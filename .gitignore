@@ -12,3 +12,5 @@ proyectos/
 *.pt
 .venv/
 venv/
+*.ai33-task.json
+*.ai33-result.json
