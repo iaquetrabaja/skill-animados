@@ -1,67 +1,92 @@
-# skill-animados
+# Animados · vídeos con Claude y ChatGPT
 
-Una skill para Claude que hace **vídeos cortos explicativos animados** (Reels, TikTok, Shorts) sin grabar ni editar.
-Le dices el tema y Claude:
+**De una idea a un vídeo animado editable**, con guion, voz, subtítulos y revisión. Código abierto de IA que trabaja. No necesitas comprar el curso de ninguna otra persona para usarlo.
 
-1. **Investiga** y apunta de dónde sale cada dato. Lo que no tiene fuente no entra.
-2. **Escribe cuatro ganchos**, elige el mejor y escribe el guion (25-40 segundos).
-3. **Pone la voz**, gratis en tu PC y clonando la tuya si le das 15 segundos de muestra.
-4. **Saca cada palabra con su segundo exacto** y dibuja cada cosa justo cuando se dice: cuando oyes «gancho», cae el gancho.
-5. **Lo revisa entero, fotograma a fotograma**, antes de dártelo.
+[Guía paso a paso](https://tools.iaquetrabaja.com/videos-con-claude/) · [Descargar](https://github.com/iaquetrabaja/skill-animados/releases/latest) · [Licencia MIT](LICENSE)
 
-No hay vídeo grabado: son unos mil dibujos hechos con código (Remotion) que cambian en el momento exacto.
+## Empieza sin pelearte con comandos
 
-## Instalación
+Descarga el ZIP del repositorio, descomprímelo y abre esa carpeta en **Claude Code o Codex**. Pega:
 
-Pega esto en Claude Code:
+> Lee AGENTS.md y SKILL.md. Comprueba los requisitos sin instalar modelos de voz. Enséñame primero la demo incluida y después crea un vídeo vertical de 30 segundos sobre [TEMA], para [PÚBLICO]. Quiero una acción visual que explique cada idea, no una sucesión de tarjetas. Hazlo en una carpeta nueva, valida y revisa el resultado.
 
-```
-https://github.com/iaquetrabaja/skill-animados
+**ChatGPT en el navegador:** adjunta `SKILL.md` y las referencias relevantes para preparar investigación, guion y storyboard. Para ejecutar el proyecto en tu ordenador usa Codex, Claude Code o los comandos de abajo. Adjuntar instrucciones no concede acceso a tu PC. [Compatibilidad y prompts](referencias/06-asistentes.md).
 
-Instala esta skill y prepárame la plantilla para hacer mi primer vídeo.
-```
+![Vista de la demo original](docs/demo.jpg)
 
-O a mano:
+[Ver o descargar la demo de 12 segundos](https://github.com/iaquetrabaja/skill-animados/releases/latest/download/demo.mp4)
 
-```bash
-git clone https://github.com/iaquetrabaja/skill-animados.git ~/.claude/skills/animados
-cd ~/.claude/skills/animados/plantilla && npm install
-```
+## Qué mejora la versión 2
 
-## Lo que necesitas
+- Un taller portable: comprobar requisitos, crear proyectos aislados, validar, previsualizar y exportar.
+- `AGENTS.md` y `CLAUDE.md` comparten el mismo método; no dependes de un solo asistente.
+- Kit SVG propio con volumen, sombra de contacto, trayectorias con destino y estallidos deterministas. Demo original de 12 segundos.
+- Subtítulos sin descarga de Google Fonts durante el render; se elimina el zoom continuo que podía recortar el dibujo.
+- La alineación rechaza palabras no reconocidas por defecto. Si decides interpolar, queda identificado en el JSON.
+- Se comprueban tiempos negativos, solapes, orden de escenas, palabras inexistentes y TypeScript.
+- Revisión con hojas de contacto y comprobación en movimiento. Los PNG temporales se eliminan al terminar.
+- Pruebas automáticas en GitHub. Modelos, claves, voces personales y proyectos privados quedan fuera del paquete.
+- Tres efectos originales reproducibles sin descargas y mezcla opcional con música que baja bajo la voz (`herramientas/audio.py`).
 
-| Para | Qué |
-| --- | --- |
-| Animar y renderizar | [Node.js](https://nodejs.org) 18 o más |
-| Tiempos de cada palabra | Python 3.10 o más y `pip install faster-whisper` |
-| Hojas de revisión | `pip install pillow` y [ffmpeg](https://ffmpeg.org) |
-| Voz gratis en tu PC (opcional) | `pip install qwen-tts soundfile` y una gráfica NVIDIA de 6 GB o más |
+## Instalación manual
 
-Si no quieres voz local, vale cualquier `voz.wav`: grabada por ti o de ElevenLabs.
-
-## Pruébalo en un minuto
-
-La plantilla trae un ejemplo montado («¿Por qué el fondo de una lata está hundido?») con el audio en silencio:
+Necesitas **Node.js 22 LTS**, **Python 3.10+** y **FFmpeg/ffprobe** en PATH. Para la demo no necesitas Python de IA, API, GPU ni un modelo de voz. La exportación puede descargar el navegador de render la primera vez.
 
 ```bash
-cd plantilla
-npx remotion studio
+git clone https://github.com/iaquetrabaja/skill-animados.git
+cd skill-animados
+python herramientas/animados.py doctor
+python herramientas/animados.py instalar
+python herramientas/animados.py demo
 ```
 
-Para tu primer vídeo, pídeselo a Claude: «hazme un vídeo animado de por qué los teclados no van en orden alfabético».
+Resultado: `salida/demo.mp4`, 1080 × 1920, 30 fps, **sin narración**. Es una prueba visual del motor, no un vídeo terminado con voz. Para verlo editable: `python herramientas/animados.py preview` y elige `Demo`.
 
-## Qué hay dentro
+```bash
+python herramientas/animados.py crear mi-video
+python herramientas/animados.py instalar proyectos/mi-video/plantilla
+python herramientas/animados.py validar proyectos/mi-video/plantilla
+python herramientas/animados.py preview proyectos/mi-video/plantilla
+python herramientas/animados.py render proyectos/mi-video/plantilla
+```
 
-| Carpeta | Qué es |
-| --- | --- |
-| `SKILL.md` | El método, paso a paso. Es lo que lee Claude. |
-| `referencias/` | Las reglas de un editor: guion y ganchos, de la frase al dibujo, movimiento y sincronización, investigación, cómo organizar cada vídeo y el gusto para que no parezca hecho con IA. |
-| `herramientas/` | `voz_local.py` (voz clonada gratis), `palabras.py` (cada palabra con su tiempo) y `revisa.py` (hojas para revisar fotograma a fotograma). |
-| `plantilla/` | El proyecto de Remotion: fondo, subtítulos con la palabra clave resaltada, transiciones sin huecos y la voz. |
-| `ejemplos/` | Tres vídeos completos con guion, fuentes y escenas: el agujero del boli, el gancho del metro y el fondo de la lata. |
+La plantilla de la lata trae **voz silenciosa y tiempos de muestra**. Antes de publicar un vídeo real sustituye `public/voz.wav`, genera los tiempos y adapta `src/escenas.tsx`. Los ejemplos metro/boli son referencias de escenas, no vídeos listos con narración. No se sobrescriben proyectos existentes.
 
-## Licencias
+## Voz: elige el camino sencillo primero
 
-El código y los textos de este repositorio son MIT. [Remotion](https://www.remotion.dev/license) es gratis para personas y empresas de hasta 3 trabajadores; por encima piden licencia de empresa.
+1. **Grabación propia:** usa tu WAV; no necesita GPU ni servicio externo.
+2. **Proveedor de voz:** importa un WAV obtenido con permiso y revisa sus condiciones/coste.
+3. **Qwen local opcional:** en un entorno Python separado, instala `qwen-tts soundfile`, con PyTorch adecuado a tu equipo. Descarga modelos de varios GB; velocidad y memoria dependen de hardware/modelo. No se instala automáticamente. Requiere una muestra autorizada y su transcripción, no incluye ninguna voz personal.
 
-Hecho por [IA que trabaja](https://iaquetrabaja.com).
+```bash
+python herramientas/voz_local.py guion.txt plantilla/public/voz.wav --muestra mi-voz.wav --texto-muestra "Texto exacto de mi muestra"
+```
+
+Para palabras: instala `faster-whisper` en tu entorno, ejecuta:
+
+```bash
+python herramientas/palabras.py plantilla/public/voz.wav plantilla/public/cues.json --guion guion.txt
+```
+
+Whisper estima los tiempos. Si no coincide, corrige guion/audio. `--permitir-estimados` permite interpolar bajo revisión explícita; no convierte estimaciones en sincronía exacta.
+
+## Calidad que se puede comprobar
+
+Mezcla opcional: `python herramientas/audio.py voz.wav mezcla.wav --musica musica-con-licencia.wav`. Genera un WAV nuevo, normaliza y reduce la música cuando habla la voz. Escúchalo antes de usarlo. Los efectos incluidos se regeneran con `python herramientas/sonidos.py` y son MIT.
+
+Cada frase debe tener objeto, acción, destino y pausa. Si dice que un sobre llega, el sobre tiene que llegar y posarse. Un texto que entra con rebote no explica por sí solo una idea.
+
+- [Diseño y guion](SKILL.md), [tabla frase → acción](referencias/02-frase-a-dibujo.md), [kit visual y planos](referencias/07-calidad.md).
+- `python herramientas/revisa.py salida/video.mp4` necesita Pillow y FFmpeg. Genera un muestreo cada medio segundo; no revisa todos los fotogramas ni evalúa por sí solo la calidad.
+- Reproduce los cortes y escucha todo el audio. Comprueba pronunciación, sincronía, legibilidad y bordes en móvil.
+- Pruebas del taller: `python -m unittest discover -s tests`. Tipos: `cd plantilla` y `npm run check`.
+
+## Licencias y alcance
+
+Código, instrucciones y demo originales de IA que trabaja, distribuidos con licencia MIT.
+
+Remotion 4 tiene [licencia propia](https://www.remotion.dev/license): permite uso gratuito a particulares y empresas de hasta tres empleados; otros casos necesitan revisar sus condiciones. Voz, fuentes, imágenes y música conservan sus respectivas licencias. La herramienta local no lleva cuota propia, pero tu asistente/proveedor puede costar dinero. No garantiza visitas, monetización ni sustituye la revisión humana.
+
+Nota de mantenimiento: fijamos Zod 4.6.6 para corregir un aviso de seguridad, aunque Remotion 4.0.539 recomienda 4.5.4. Su comprobador puede mostrar ese aviso de versión. La validación de tipos y ambas composiciones se han probado con la versión corregida; no ejecutes un downgrade automático para ocultar el aviso.
+
+[Problemas y propuestas](https://github.com/iaquetrabaja/skill-animados/issues) · [IA que trabaja](https://iaquetrabaja.com)

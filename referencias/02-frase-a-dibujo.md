@@ -10,7 +10,7 @@ Antes de escribir una línea de código, haz esta tabla en `escenas.md`:
 Reglas:
 - **Un objeto protagonista por escena.** Si hay que comparar, dos, lado a lado y del mismo tamaño.
 - **Lo que se nombra, se ve en ese instante.** Si la voz dice «un milímetro», aparece una cota con «1 mm» justo ahí.
-- **Dibujos simples y de líneas.** Formas geométricas, 2-3 colores, sombras planas. Se entienden en un móvil a medio brillo.
+- **Objetos legibles con volumen cuando ayude.** Silueta clara, pocos materiales, luz coherente y sombras de contacto. Una escena completa explica más que iconos flotantes.
 - **Las cifras, grandes y contando.** Un 6,0 M que sube desde 0 se entiende mejor que uno quieto.
 - **Zoom antes que cambio de escena.** Acercarte al detalle mantiene el hilo; cortar a otra cosa lo rompe.
-- Cada 3-4 segundos cambia algo grande: escena, encuadre o color de fondo. Si no, el ojo se va.
+- Cambia de plano cuando avance la explicación; deja reposo después de una acción importante. No añadas movimiento solo para llenar tiempo.

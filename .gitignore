@@ -2,3 +2,13 @@ node_modules/
 __pycache__/
 salida/
 *.mp4
+proyectos/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.safetensors
+*.pt
+.venv/
+venv/

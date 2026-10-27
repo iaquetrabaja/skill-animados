@@ -15,11 +15,12 @@ mi-video/
   salida/              vídeo, hojas de revisión y portadas (pasos 6 y 7)
 ```
 
-Para empezar uno nuevo:
+Para empezar uno nuevo sin sobrescribir trabajo:
 
 ```bash
-cp -r plantilla mi-video/plantilla
-cd mi-video/plantilla && npm install
+python herramientas/animados.py crear mi-video
+python herramientas/animados.py instalar proyectos/mi-video/plantilla
+python herramientas/animados.py preview proyectos/mi-video/plantilla
 ```
 
-Para ver el vídeo mientras lo haces: `npx remotion studio`. Para renderizarlo: `npx remotion render Video ../salida/video.mp4`.
+La carpeta raíz se conserva como plantilla. Los proyectos van en `proyectos/`, excluido de Git; el render de cada uno va a su carpeta `salida/`. Guarda voces, fuentes y permisos en tu propio proyecto, no en el repositorio público. Para actualizar, conserva primero tus proyectos y cambios; no ejecutes un reset destructivo.

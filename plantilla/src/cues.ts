@@ -12,6 +12,7 @@ const limpia = (s: string) =>
 export const cue = (palabra: string, n = 1): number => {
   const w = limpia(palabra);
   const hits = PALABRAS.filter((p) => p.w === w);
+  if (!Number.isInteger(n) || n < 1) throw new Error('La aparición debe ser un entero positivo');
   if (hits.length < n) throw new Error(`La palabra «${palabra}» (vez ${n}) no está en la voz`);
   return Math.round(hits[n - 1].t * FPS);
 };
@@ -20,5 +21,6 @@ export const cue = (palabra: string, n = 1): number => {
 export const fin = (palabra: string, n = 1): number => {
   const w = limpia(palabra);
   const hits = PALABRAS.filter((p) => p.w === w);
+  if (!Number.isInteger(n) || n < 1 || hits.length < n) throw new Error(`No existe el final de «${palabra}» (vez ${n})`);
   return Math.round(hits[n - 1].f * FPS);
 };

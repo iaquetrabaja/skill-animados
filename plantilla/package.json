@@ -3,17 +3,26 @@
   "private": true,
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render Video ../salida/video.mp4"
+    "render": "remotion render src/index.ts Video ../salida/video.mp4 --codec h264 --crf 18 --pixel-format yuv420p",
+    "demo": "remotion render src/index.ts Demo ../salida/demo.mp4 --codec h264 --crf 18 --pixel-format yuv420p",
+    "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@remotion/cli": "4.0.499",
-    "@remotion/google-fonts": "4.0.499",
+    "@remotion/cli": "4.0.539",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "remotion": "4.0.499"
+    "remotion": "4.0.539"
   },
   "devDependencies": {
     "typescript": "5.9.3",
     "@types/react": "19.2.2"
+  },
+  "overrides": {
+    "zod": "4.6.6",
+    "fast-uri": "3.1.9"
+  },
+  "version": "2.0.0",
+  "engines": {
+    "node": ">=22"
   }
 }
