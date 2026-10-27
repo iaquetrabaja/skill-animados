@@ -12,7 +12,7 @@ Descarga el ZIP del repositorio, descomprímelo y abre esa carpeta en **Claude C
 
 **ChatGPT en el navegador:** adjunta `SKILL.md` y las referencias relevantes para preparar investigación, guion y storyboard. Para ejecutar el proyecto en tu ordenador usa Codex, Claude Code o los comandos de abajo. Adjuntar instrucciones no concede acceso a tu PC. [Compatibilidad y prompts](referencias/06-asistentes.md).
 
-<img src="docs/portada.png" width="800" alt="Vídeos con IA: Claude y ChatGPT. Tu idea, tu vídeo.">
+<img src="docs/portada.png" width="800" alt="Capturas reales de las escenas de la demo de Animados">
 
 [Ver o descargar la demo narrada de unos 26 segundos](https://github.com/iaquetrabaja/skill-animados/releases/latest/download/demo.mp4)
 

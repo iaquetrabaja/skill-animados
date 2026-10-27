@@ -21,7 +21,7 @@
     "zod": "4.6.6",
     "fast-uri": "3.1.9"
   },
-  "version": "2.2.0",
+  "version": "2.2.1",
   "engines": {
     "node": ">=22"
   }
