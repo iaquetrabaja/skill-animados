@@ -80,11 +80,13 @@ def main():
     proyecto = Path(a.proyecto).resolve()
     if not (proyecto / 'src/Raiz.tsx').is_file():
         ap.error('indica la carpeta plantilla del proyecto')
-    if a.accion in ('validar', 'render', 'preview'):
-        datos = json.loads((proyecto / 'public/cues.json').read_text(encoding='utf-8-sig'))
+    if a.accion in ('validar', 'render', 'preview', 'demo'):
+        archivo_cues = 'public/demo/cues.json' if a.accion == 'demo' else 'public/cues.json'
+        archivo_voz = 'public/demo/narracion.wav' if a.accion == 'demo' else 'public/voz.wav'
+        datos = json.loads((proyecto / archivo_cues).read_text(encoding='utf-8-sig'))
         errores = validar_cues(datos)
-        if not (proyecto / 'public/voz.wav').is_file():
-            errores.append('falta public/voz.wav')
+        if not (proyecto / archivo_voz).is_file():
+            errores.append(f'falta {archivo_voz}')
         if errores:
             ap.exit(1, '\n'.join(errores) + '\n')
         print(f'Cues válidos: {len(datos["palabras"])} palabras / {datos["duracion"]} s', flush=True)

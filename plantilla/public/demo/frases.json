@@ -1,0 +1,42 @@
+[
+  {
+    "texto": "Este huevo se hunde. Pero añade sal... y empieza a flotar.",
+    "inicio": 0,
+    "fin": 4.2936
+  },
+  {
+    "texto": "No has cambiado el huevo. Has cambiado el agua.",
+    "inicio": 4.5536,
+    "fin": 7.0902
+  },
+  {
+    "texto": "La sal se disuelve y aumenta su densidad.",
+    "inicio": 7.3502,
+    "fin": 10.2998
+  },
+  {
+    "texto": "Eso significa más masa en el mismo volumen.",
+    "inicio": 10.5598,
+    "fin": 13.4202
+  },
+  {
+    "texto": "El agua empuja hacia arriba al huevo: es el empuje.",
+    "inicio": 13.6803,
+    "fin": 16.438
+  },
+  {
+    "texto": "Al hacerse más densa, ese empuje aumenta hasta sostenerlo.",
+    "inicio": 16.698,
+    "fin": 20.3779
+  },
+  {
+    "texto": "Por eso flotas más fácilmente en agua muy salada.",
+    "inicio": 20.6379,
+    "fin": 23.5943
+  },
+  {
+    "texto": "El truco no era un huevo más ligero. Era un agua más densa.",
+    "inicio": 23.8543,
+    "fin": 27.3215
+  }
+]

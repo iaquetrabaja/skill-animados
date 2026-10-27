@@ -11,7 +11,7 @@ Lee `AGENTS.md`. Conserva el estilo y la intención del usuario. El objetivo es 
 
 - Con acceso local: `python herramientas/animados.py doctor`. Crea una carpeta nueva con `crear nombre`. No instales modelos grandes ni consumas APIs de pago sin que el usuario haya elegido esa opción.
 - Sin acceso local: entrega guion, storyboard, archivos y pasos para ejecutarlos. Consulta `referencias/06-asistentes.md`. No afirmes que has visto o renderizado un vídeo si no pudiste hacerlo.
-- Para probar el motor primero: `instalar`, `demo`; la demo no tiene narración. La composición Video de muestra contiene silencio.
+- Para probar el motor primero: `instalar`, `demo`; la demo incluye una historia con narración final ya generada. La composición Video de la lata conserva audio silencioso de muestra.
 
 ## Construcción
 
