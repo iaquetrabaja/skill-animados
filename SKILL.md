@@ -1,34 +1,30 @@
 ---
 name: animados
-description: Prepara y produce vídeos explicativos animados en Remotion con investigación, guion visual, narración opcional, subtítulos y revisión. Úsala para crear o mejorar un Reel, Short o explicación animada con código. Funciona con Claude Code y Codex; en un chat sin ejecución prepara los archivos y el plan sin fingir un render.
+description: Produce vídeos verticales animados (Reels, Shorts, TikTok) en los que una voz cuenta algo sorprendente y en pantalla se ve, dibujado en código y moviéndose con cada palabra, lo que dice. Investigación, guion, voz, planos con cámara y luz, subtítulos palabra a palabra, revisión en movimiento y render. Funciona con Claude Code y Codex; en un chat sin ejecución prepara los archivos sin fingir un render.
 ---
 
 # Animados
 
-Lee `AGENTS.md`. Conserva el estilo y la intención del usuario. El objetivo es explicar mediante acciones visibles, no llenar una plantilla con titulares. No promete resultados de audiencia.
+Lee `AGENTS.md`. El resultado es un vídeo vertical de 25 a 60 segundos: una voz cuenta algo y en la pantalla **pasa** lo que dice. La cosa de verdad, grande, con luz y volumen, moviéndose todo el rato. Nada de diapositivas con títulos, esquemas quietos o iconos sobre un fondo.
 
-## Elige el modo disponible
+El nivel mínimo es la demo (`plantilla/src/demo/cielo.ts`, `ejemplos/cielo-azul/`). Mírala antes del primer vídeo: `python herramientas/animados.py demo` y la lámina del kit `docs/kit.jpg`.
 
-- Con acceso local: `python herramientas/animados.py doctor`. Crea una carpeta nueva con `crear nombre`. No instales modelos grandes ni consumas APIs de pago sin que el usuario haya elegido esa opción.
-- Sin acceso local: entrega guion, storyboard, archivos y pasos para ejecutarlos. Consulta `referencias/06-asistentes.md`. No afirmes que has visto o renderizado un vídeo si no pudiste hacerlo.
-- Para probar el motor primero: `instalar`, `demo`; la demo incluye una historia con narración final ya generada. La composición Video de la lata conserva audio silencioso de muestra.
+## Antes de empezar
 
-## Construcción
+- Con acceso local: `python herramientas/animados.py doctor`, después `crear <nombre>` e `instalar proyectos/<nombre>/plantilla`.
+- Sin acceso local: prepara guion, plan y `planos.ts` y explica cómo ejecutarlos (`referencias/06-asistentes.md`). No digas que has visto o renderizado un vídeo si no has podido.
+- No instales modelos grandes ni uses servicios de pago (voz) sin que el usuario lo haya elegido.
 
-1. Investiga los datos sustantivos con fuentes primarias cuando existan. Guarda URLs, fecha y qué afirma cada una en `investigacion.md`. Separa metáforas de hechos; no fuerces tres fuentes para una afirmación sencilla ni inventes cifras.
-2. Propón varios ganchos si el usuario aún no tiene uno; elige según público y objetivo. Escribe `guion.txt`: una idea por frase, duración estimada según lectura real. Consulta `referencias/01-guion-y-texto.md`.
-3. Crea `escenas.md`: frase, objeto, acción causal, palabra o tiempo que la dispara, destino, pausa y transición. Lee `referencias/02-frase-a-dibujo.md` y `referencias/07-calidad.md` antes de dibujar. Diseña escenas completas; alterna plano general, detalle y comparación cuando ayuden.
-4. Usa una grabación o narración autorizada. Si el usuario elige AI33, lee `referencias/08-ai33.md`: catálogo configurable, clave solo en AI33_API_KEY y tareas reanudables sin generar duplicados. No envíes guiones a un servicio externo sin que el usuario haya elegido esa opción. Qwen es opcional, no trae voz por defecto. `voz_local.py --help` explica la muestra. Escucha la voz completa: una transcripción no prueba pronunciación, acento ni naturalidad. Texto hablado alternativo: `[ISO 11540|ISO once mil quinientos cuarenta]`.
-5. Ejecuta `palabras.py voz.wav plantilla/public/cues.json --guion guion.txt`. Si la alineación falla, revisa el audio y guion. Solo interpola con `--permitir-estimados` si vas a revisar esos tramos; el JSON los marca. No uses cues demo con una voz nueva.
-6. Escribe `src/escenas.tsx`. `cue('palabra', aparición)` y `fin(...)` anclan acciones. En piezas no narradas usa tiempos de storyboard declarados. El kit `src/kit.tsx` ofrece volumen y trayectorias; compón objetos nuevos si hacen falta, no conviertas todos los temas en el mismo diagrama. Animaciones puras por fotograma, IDs estables, sin Math.random, reloj real ni descargas al renderizar. Lee `referencias/03-movimiento-y-sincro.md`.
-7. `python herramientas/animados.py validar RUTA/plantilla`, luego `render RUTA/plantilla`. Corrige errores antes de exportar. Mantén 1080×1920, 30 fps y H.264 como salida vertical de referencia; adaptar otro formato requiere revisar encuadre y textos, no estirar el vídeo.
+## Los pasos
 
-## Revisión y entrega
+1. **Datos.** Busca la fuente de verdad y apunta cada dato con su URL en `investigacion.md` (`referencias/04-investigacion.md`). Busca lo sorprendente, la regla que rompe, el mecanismo paso a paso, una cifra que se sienta y dos comparaciones con cosas de casa.
+2. **Guion.** `referencias/01-guion.md`. Gancho en la primera frase, una idea por frase, cada frase es algo que pasa. La imagen se piensa a la vez que la frase. Escribe `guion.txt`.
+3. **Voz.** La del usuario (WAV), AI33 (`referencias/08-ai33.md`) o Qwen local. Nunca se acelera, se ralentiza ni se recorta: si una frase suena mal, se reescribe y se rehace. Después, los tiempos: `python herramientas/palabras.py voz.wav plantilla/public/cues.json --guion guion.txt`.
+4. **Plan.** `plan.md` antes de dibujar: los sitios, los planos, qué se ve en cada frase, la palabra donde pasa lo fuerte, adónde va la cámara y cómo se pasa al siguiente. Reglas en `referencias/02-planos.md`.
+5. **Dibujar.** Un plano detrás de otro en `plantilla/src/video/planos.ts` con el kit (`referencias/03-dibujar.md`). Primero el gancho: grande y moviéndose desde el fotograma 0.
+6. **Revisar en movimiento.** `referencias/05-revisar.md`. Cada vez que cambies algo, mira el fotograma o el tramo. Lo que no has mirado no está revisado.
+7. **Render.** `python herramientas/animados.py render proyectos/<nombre>/plantilla`. Al terminar mide el movimiento (`herramientas/movimiento.py`): si más de un 30 % del vídeo está quieto, o el primer segundo, o hay 1,5 s seguidos sin cambios, no pasa. Arréglalo antes de enseñarlo.
 
-- `revisa.py` genera hojas de contacto; compruébalas. Son un muestreo, no inspección de todos los fotogramas.
-- Reproduce entradas, colisiones y cortes; escucha toda la narración. Revisa 0.2 s antes y después de los eventos importantes.
-- Comprueba bordes, subtítulos, texto en móvil, continuidad, picos de sonido y hechos. Corrige y vuelve a exportar los tramos afectados.
-- Entrega MP4, guion, storyboard, fuentes y un resumen honesto de controles realizados/pendientes. Portadas/post solo si los pide o ayudan al encargo.
-- No publiques el resultado en redes por el mero hecho de producirlo.
+## Entrega
 
-Las referencias en `ejemplos/` son modificables; no prueban que sus datos sigan vigentes. No copies material de terceros sin permiso.
+El MP4 (1080 × 1920, 30 fps, H.264), el guion, las fuentes y dos líneas para el post (la primera engancha). Di qué has revisado y qué no. No publiques en redes por haberlo producido. No copies material de terceros sin permiso ni presentes una ilustración como si fuera una grabación real.

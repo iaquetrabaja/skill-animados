@@ -1,5 +1,9 @@
 # Cambios
 
+## 3.0.0
+
+Motor nuevo. Los vídeos se dibujan en un lienzo con cámara 3D, luz que se suma, planetas con textura y giro, cielo según la altura del Sol, nubes, colinas, personas, partículas en 3D, prisma, gráficos, móvil y cifras. Subtítulos palabra a palabra con la fuente Onest. Método por sitios y planos, con el gancho primero. Demo nueva: «¿Por qué el cielo es azul?», 33 s, voz AI33 alineada sin interpolar. Nueva medida de movimiento (`movimiento.py`) que corre al renderizar: la demo anterior estaba quieta el 75 % del tiempo y la nueva el 8 %. Se retiran el kit SVG, las escenas de la lata, el metro y el boli y las referencias antiguas.
+
 ## 2.2.1
 
 Portadas sustituidas por capturas reales de la animación, sin fotografía del creador ni maquetas de móviles.

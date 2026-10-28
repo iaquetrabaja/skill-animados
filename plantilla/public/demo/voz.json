@@ -1,7 +1,0 @@
-{
-  "proveedor": "AI33/OpenSpeaker",
-  "voice_id": "elevenlabs_7QXA3lh7d25G1SzsIJdv",
-  "velocidad": 1,
-  "sincronizacion": "faster-whisper small; 77/77 palabras sin interpolación",
-  "credenciales_incluidas": false
-}

@@ -1,0 +1,605 @@
+{
+ "palabras": [
+  {
+   "w": "por",
+   "texto": "¿Por",
+   "t": 0.0,
+   "f": 0.3
+  },
+  {
+   "w": "que",
+   "texto": "qué",
+   "t": 0.3,
+   "f": 0.44
+  },
+  {
+   "w": "el",
+   "texto": "el",
+   "t": 0.44,
+   "f": 0.56
+  },
+  {
+   "w": "cielo",
+   "texto": "cielo",
+   "t": 0.56,
+   "f": 0.72
+  },
+  {
+   "w": "es",
+   "texto": "es",
+   "t": 0.72,
+   "f": 0.92
+  },
+  {
+   "w": "azul",
+   "texto": "azul,",
+   "t": 0.92,
+   "f": 1.2
+  },
+  {
+   "w": "si",
+   "texto": "si",
+   "t": 1.2,
+   "f": 1.7
+  },
+  {
+   "w": "la",
+   "texto": "la",
+   "t": 1.7,
+   "f": 1.82
+  },
+  {
+   "w": "luz",
+   "texto": "luz",
+   "t": 1.82,
+   "f": 1.96
+  },
+  {
+   "w": "del",
+   "texto": "del",
+   "t": 1.96,
+   "f": 2.12
+  },
+  {
+   "w": "sol",
+   "texto": "Sol",
+   "t": 2.12,
+   "f": 2.28
+  },
+  {
+   "w": "es",
+   "texto": "es",
+   "t": 2.28,
+   "f": 2.42
+  },
+  {
+   "w": "blanca",
+   "texto": "blanca?",
+   "t": 2.42,
+   "f": 2.72
+  },
+  {
+   "w": "porque",
+   "texto": "Porque",
+   "t": 3.22,
+   "f": 3.42
+  },
+  {
+   "w": "esa",
+   "texto": "esa",
+   "t": 3.42,
+   "f": 3.66
+  },
+  {
+   "w": "luz",
+   "texto": "luz",
+   "t": 3.66,
+   "f": 3.84
+  },
+  {
+   "w": "blanca",
+   "texto": "blanca",
+   "t": 3.84,
+   "f": 4.2
+  },
+  {
+   "w": "lleva",
+   "texto": "lleva",
+   "t": 4.2,
+   "f": 4.44
+  },
+  {
+   "w": "todos",
+   "texto": "todos",
+   "t": 4.44,
+   "f": 4.74
+  },
+  {
+   "w": "los",
+   "texto": "los",
+   "t": 4.74,
+   "f": 5.0
+  },
+  {
+   "w": "colores",
+   "texto": "colores",
+   "t": 5.0,
+   "f": 5.32
+  },
+  {
+   "w": "mezclados",
+   "texto": "mezclados.",
+   "t": 5.32,
+   "f": 5.9
+  },
+  {
+   "w": "al",
+   "texto": "Al",
+   "t": 6.36,
+   "f": 6.56
+  },
+  {
+   "w": "llegar",
+   "texto": "llegar",
+   "t": 6.56,
+   "f": 6.72
+  },
+  {
+   "w": "a",
+   "texto": "a",
+   "t": 6.72,
+   "f": 6.86
+  },
+  {
+   "w": "la",
+   "texto": "la",
+   "t": 6.86,
+   "f": 6.96
+  },
+  {
+   "w": "tierra",
+   "texto": "Tierra,",
+   "t": 6.96,
+   "f": 7.28
+  },
+  {
+   "w": "choca",
+   "texto": "choca",
+   "t": 7.68,
+   "f": 7.98
+  },
+  {
+   "w": "con",
+   "texto": "con",
+   "t": 7.98,
+   "f": 8.16
+  },
+  {
+   "w": "las",
+   "texto": "las",
+   "t": 8.16,
+   "f": 8.32
+  },
+  {
+   "w": "moleculas",
+   "texto": "moléculas",
+   "t": 8.32,
+   "f": 8.82
+  },
+  {
+   "w": "del",
+   "texto": "del",
+   "t": 8.82,
+   "f": 8.94
+  },
+  {
+   "w": "aire",
+   "texto": "aire.",
+   "t": 8.94,
+   "f": 9.16
+  },
+  {
+   "w": "y",
+   "texto": "Y",
+   "t": 9.6,
+   "f": 9.76
+  },
+  {
+   "w": "no",
+   "texto": "no",
+   "t": 9.76,
+   "f": 9.88
+  },
+  {
+   "w": "todos",
+   "texto": "todos",
+   "t": 9.88,
+   "f": 10.08
+  },
+  {
+   "w": "los",
+   "texto": "los",
+   "t": 10.08,
+   "f": 10.3
+  },
+  {
+   "w": "colores",
+   "texto": "colores",
+   "t": 10.3,
+   "f": 10.68
+  },
+  {
+   "w": "rebotan",
+   "texto": "rebotan",
+   "t": 10.68,
+   "f": 11.14
+  },
+  {
+   "w": "igual",
+   "texto": "igual.",
+   "t": 11.14,
+   "f": 11.36
+  },
+  {
+   "w": "el",
+   "texto": "El",
+   "t": 11.92,
+   "f": 12.04
+  },
+  {
+   "w": "azul",
+   "texto": "azul",
+   "t": 12.04,
+   "f": 12.26
+  },
+  {
+   "w": "rebota",
+   "texto": "rebota",
+   "t": 12.26,
+   "f": 12.72
+  },
+  {
+   "w": "unas",
+   "texto": "unas",
+   "t": 12.72,
+   "f": 12.94
+  },
+  {
+   "w": "cinco",
+   "texto": "cinco",
+   "t": 12.94,
+   "f": 13.28
+  },
+  {
+   "w": "veces",
+   "texto": "veces",
+   "t": 13.28,
+   "f": 13.6
+  },
+  {
+   "w": "mas",
+   "texto": "más",
+   "t": 13.6,
+   "f": 13.82
+  },
+  {
+   "w": "que",
+   "texto": "que",
+   "t": 13.82,
+   "f": 13.98
+  },
+  {
+   "w": "el",
+   "texto": "el",
+   "t": 13.98,
+   "f": 14.08
+  },
+  {
+   "w": "rojo",
+   "texto": "rojo,",
+   "t": 14.08,
+   "f": 14.4
+  },
+  {
+   "w": "y",
+   "texto": "y",
+   "t": 14.4,
+   "f": 14.92
+  },
+  {
+   "w": "sale",
+   "texto": "sale",
+   "t": 14.92,
+   "f": 15.1
+  },
+  {
+   "w": "disparado",
+   "texto": "disparado",
+   "t": 15.1,
+   "f": 15.62
+  },
+  {
+   "w": "en",
+   "texto": "en",
+   "t": 15.62,
+   "f": 15.78
+  },
+  {
+   "w": "todas",
+   "texto": "todas",
+   "t": 15.78,
+   "f": 15.94
+  },
+  {
+   "w": "direcciones",
+   "texto": "direcciones.",
+   "t": 15.94,
+   "f": 16.5
+  },
+  {
+   "w": "por",
+   "texto": "Por",
+   "t": 17.12,
+   "f": 17.42
+  },
+  {
+   "w": "eso",
+   "texto": "eso,",
+   "t": 17.42,
+   "f": 17.66
+  },
+  {
+   "w": "mires",
+   "texto": "mires",
+   "t": 18.02,
+   "f": 18.2
+  },
+  {
+   "w": "donde",
+   "texto": "donde",
+   "t": 18.2,
+   "f": 18.38
+  },
+  {
+   "w": "mires",
+   "texto": "mires,",
+   "t": 18.38,
+   "f": 18.9
+  },
+  {
+   "w": "te",
+   "texto": "te",
+   "t": 19.14,
+   "f": 19.24
+  },
+  {
+   "w": "llega",
+   "texto": "llega",
+   "t": 19.24,
+   "f": 19.5
+  },
+  {
+   "w": "azul",
+   "texto": "azul.",
+   "t": 19.66,
+   "f": 19.94
+  },
+  {
+   "w": "al",
+   "texto": "Al",
+   "t": 20.48,
+   "f": 20.64
+  },
+  {
+   "w": "atardecer",
+   "texto": "atardecer,",
+   "t": 20.64,
+   "f": 21.18
+  },
+  {
+   "w": "la",
+   "texto": "la",
+   "t": 21.48,
+   "f": 21.54
+  },
+  {
+   "w": "luz",
+   "texto": "luz",
+   "t": 21.54,
+   "f": 21.74
+  },
+  {
+   "w": "cruza",
+   "texto": "cruza",
+   "t": 21.74,
+   "f": 22.08
+  },
+  {
+   "w": "mucho",
+   "texto": "mucho",
+   "t": 22.08,
+   "f": 22.34
+  },
+  {
+   "w": "mas",
+   "texto": "más",
+   "t": 22.34,
+   "f": 22.54
+  },
+  {
+   "w": "aire",
+   "texto": "aire.",
+   "t": 22.54,
+   "f": 22.84
+  },
+  {
+   "w": "el",
+   "texto": "El",
+   "t": 23.32,
+   "f": 23.46
+  },
+  {
+   "w": "azul",
+   "texto": "azul",
+   "t": 23.46,
+   "f": 23.68
+  },
+  {
+   "w": "se",
+   "texto": "se",
+   "t": 23.68,
+   "f": 23.86
+  },
+  {
+   "w": "pierde",
+   "texto": "pierde",
+   "t": 23.86,
+   "f": 24.16
+  },
+  {
+   "w": "por",
+   "texto": "por",
+   "t": 24.16,
+   "f": 24.34
+  },
+  {
+   "w": "el",
+   "texto": "el",
+   "t": 24.34,
+   "f": 24.46
+  },
+  {
+   "w": "camino",
+   "texto": "camino",
+   "t": 24.46,
+   "f": 24.76
+  },
+  {
+   "w": "y",
+   "texto": "y",
+   "t": 24.76,
+   "f": 25.14
+  },
+  {
+   "w": "solo",
+   "texto": "solo",
+   "t": 25.14,
+   "f": 25.32
+  },
+  {
+   "w": "llega",
+   "texto": "llega",
+   "t": 25.32,
+   "f": 25.6
+  },
+  {
+   "w": "el",
+   "texto": "el",
+   "t": 25.6,
+   "f": 25.76
+  },
+  {
+   "w": "naranja",
+   "texto": "naranja.",
+   "t": 25.76,
+   "f": 26.16
+  },
+  {
+   "w": "y",
+   "texto": "Y",
+   "t": 26.66,
+   "f": 26.82
+  },
+  {
+   "w": "en",
+   "texto": "en",
+   "t": 26.82,
+   "f": 26.94
+  },
+  {
+   "w": "marte",
+   "texto": "Marte",
+   "t": 26.94,
+   "f": 27.3
+  },
+  {
+   "w": "pasa",
+   "texto": "pasa",
+   "t": 27.3,
+   "f": 27.6
+  },
+  {
+   "w": "justo",
+   "texto": "justo",
+   "t": 27.6,
+   "f": 27.9
+  },
+  {
+   "w": "al",
+   "texto": "al",
+   "t": 27.9,
+   "f": 28.12
+  },
+  {
+   "w": "reves",
+   "texto": "revés:",
+   "t": 28.12,
+   "f": 28.46
+  },
+  {
+   "w": "el",
+   "texto": "el",
+   "t": 28.46,
+   "f": 28.98
+  },
+  {
+   "w": "cielo",
+   "texto": "cielo",
+   "t": 28.98,
+   "f": 29.26
+  },
+  {
+   "w": "es",
+   "texto": "es",
+   "t": 29.26,
+   "f": 29.44
+  },
+  {
+   "w": "rojizo",
+   "texto": "rojizo",
+   "t": 29.44,
+   "f": 29.96
+  },
+  {
+   "w": "y",
+   "texto": "y",
+   "t": 29.96,
+   "f": 30.4
+  },
+  {
+   "w": "los",
+   "texto": "los",
+   "t": 30.4,
+   "f": 30.52
+  },
+  {
+   "w": "atardeceres",
+   "texto": "atardeceres,",
+   "t": 30.52,
+   "f": 31.36
+  },
+  {
+   "w": "azules",
+   "texto": "azules.",
+   "t": 31.36,
+   "f": 31.92
+  }
+ ],
+ "duracion": 32.51,
+ "alineacion": {
+  "motor": "faster-whisper",
+  "modelo": "small",
+  "palabras_interpoladas": 0,
+  "revision_manual": true
+ }
+}

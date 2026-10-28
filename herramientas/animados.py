@@ -48,7 +48,6 @@ def main():
     sub.add_parser('doctor', help='comprueba requisitos sin instalar ni descargar modelos')
     nuevo = sub.add_parser('crear', help='crea una copia aislada de la plantilla')
     nuevo.add_argument('nombre')
-    nuevo.add_argument('--ejemplo', choices=['lata', 'metro', 'boli'], default='lata')
     for c in ('instalar', 'validar', 'preview', 'render', 'demo'):
         p = sub.add_parser(c)
         p.add_argument('proyecto', nargs='?', default=str(ROOT / 'plantilla'))
@@ -67,22 +66,17 @@ def main():
         if destino.exists():
             ap.error('esa carpeta ya existe; elige otro nombre para conservar tu trabajo')
         shutil.copytree(ROOT / 'plantilla', destino / 'plantilla', ignore=shutil.ignore_patterns('node_modules', 'build', '.remotion'))
-        for file in (ROOT / 'ejemplos' / a.ejemplo).iterdir():
-            if file.is_file():
-                shutil.copy2(file, destino / file.name)
-        # Cada ejemplo necesita su propia narración y cues. Solo lata coincide con los incluidos.
-        if a.ejemplo == 'lata':
-            shutil.copy2(ROOT / 'ejemplos/lata/escenas.tsx', destino / 'plantilla/src/escenas.tsx')
-        else:
-            print('Ejemplo copiado como referencia. Genera su voz/cues antes de sustituir escenas.tsx.')
+        for nombre in ('guion.txt', 'investigacion.md', 'plan.md'):
+            (destino / nombre).write_text('', encoding='utf-8')
+        print('Escribe guion.txt, investigacion.md y plan.md; después la voz, los tiempos y src/video/planos.ts.')
         print(f'Creado: {destino}\nSiguiente: python herramientas/animados.py instalar "{destino / "plantilla"}"')
         return
     proyecto = Path(a.proyecto).resolve()
     if not (proyecto / 'src/Raiz.tsx').is_file():
         ap.error('indica la carpeta plantilla del proyecto')
     if a.accion in ('validar', 'render', 'preview', 'demo'):
-        archivo_cues = 'public/demo/cues.json' if a.accion == 'demo' else 'public/cues.json'
-        archivo_voz = 'public/demo/narracion.wav' if a.accion == 'demo' else 'public/voz.wav'
+        archivo_cues = 'public/cielo/cues.json' if a.accion == 'demo' else 'public/cues.json'
+        archivo_voz = 'public/cielo/voz.wav' if a.accion == 'demo' else 'public/voz.wav'
         datos = json.loads((proyecto / archivo_cues).read_text(encoding='utf-8-sig'))
         errores = validar_cues(datos)
         if not (proyecto / archivo_voz).is_file():
@@ -105,6 +99,11 @@ def main():
     else:
         ejecutar([npm, 'run', 'check'], proyecto)
         ejecutar([npm, 'run', a.accion], proyecto)
+        video = proyecto.parent / 'salida' / ('demo.mp4' if a.accion == 'demo' else 'video.mp4')
+        # Un vídeo que no se mueve no se entrega: la medida avisa y el asistente lo arregla antes de enseñarlo.
+        r = subprocess.run([sys.executable, str(ROOT / 'herramientas/movimiento.py'), str(video)])
+        if r.returncode:
+            ap.exit(1, 'El render existe, pero no pasa la comprobación de movimiento. Corrige esos tramos.\n')
 
 
 if __name__ == '__main__':

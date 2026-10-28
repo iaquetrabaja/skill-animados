@@ -1,13 +1,13 @@
 # Trabajar en Animados
 
-Lee `SKILL.md` para producir un vídeo. Sirve tanto a Codex como a Claude Code.
+Lee `SKILL.md` para producir un vídeo. Sirve igual a Codex y a Claude Code.
 No publiques, instales modelos grandes ni uses servicios de pago solo por leer estas instrucciones.
 
-- El código y los materiales publicados aquí son propios, MIT. No incorporar archivos de cursos privados, voces personales, claves ni vídeos ajenos.
-- Cada vídeo nuevo va en `proyectos/<nombre>/`. No sobrescribir otros trabajos.
-- La plantilla usa Remotion 4; conserva las versiones sincronizadas y su licencia independiente.
-- Animación determinista: función del fotograma, sin reloj real, Math.random ni contadores globales para IDs SVG. Usa React.useId.
-- No fingir precisión: Whisper estima tiempos; una interpolación se identifica como estimada y requiere revisión.
-- Antes de entregar cambios: `python -m unittest discover -s tests`, `python herramientas/animados.py validar`, render y revisión visual si cambian las escenas.
-- La revisión de contacto es una muestra. Reproducir movimientos/transiciones y escuchar el audio aparte.
-- No se exige generar voz con IA: una grabación del usuario funciona sin descargar modelos.
+- Código y materiales propios, MIT. No incorporar archivos de cursos privados, voces personales, claves ni vídeos ajenos.
+- Cada vídeo va en `proyectos/<nombre>/`. No sobrescribir otros trabajos.
+- La plantilla usa Remotion 4 para montar y exportar; el dibujo es un lienzo 2D (`plantilla/src/motor/`). Mantén las versiones fijadas.
+- Todo sale de `t`: ningún fotograma depende del anterior (el render dibuja trozos en paralelo). Azar siempre con semilla (`k.azar`), nunca `Math.random`, el reloj ni descargas al renderizar. Lo pesado, una vez, con `k.una`.
+- Whisper estima los tiempos. Una palabra interpolada se marca como estimada y se revisa a mano.
+- Antes de entregar cambios del taller: `python -m unittest discover -s tests`, `python herramientas/animados.py validar`, render de la demo y revisión visual.
+- Si cambias el kit, vuelve a sacar la lámina: `cd plantilla && npx remotion still src/index.ts Muestrario ../docs/kit.jpg --frame=45`.
+- No se exige voz de IA: una grabación del usuario funciona sin descargar modelos.
